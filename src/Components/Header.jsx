@@ -4,13 +4,16 @@ import {Link, NavLink} from 'react-router-dom'
 import Hamberger from './Hamberger'
 
 function Header() {
+
+    
+    
   return (
     <>
     <header className=''>
-        <nav className='flex items-center justify-between  ml-10 mr-10 mt-1'>
+        <nav className='flex items-center justify-between  ml-10 mr-10 '>
             <div className='hidden sm:block'>
-                <Link to='/' >
-                <img src="\src\assets\WhatsApp Image 2024-06-17 at 03.53.11_9ae0a259.jpg" alt="" className='h-24 w-24'/>
+                <Link to='home' >
+                <img src="src/assets/logo.png" alt="" className='h-24 w-24'/>
                 </Link>
             </div>
             <ul className='sm:flex sm:flex-wrap sm:gap-2 sm:text-lg hidden text-black font-medium'>
