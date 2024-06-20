@@ -46,8 +46,8 @@ function Footer() {
             </Link>
           </ul>
         </div>
-        <div className='absolute right-0 mr-10 mt-10'>
-        <img src={pic1} alt='Logo' className='w-48 h-50 rounded-full shadow-lg' />
+        {/* <div className='absolute right-0 mr-10 mt-10'>
+        <img src={pic1} alt='Logo' className='w-48 h-50 rounded-full shadow-lg' /> */}
       </div>
       </div>
     </>
