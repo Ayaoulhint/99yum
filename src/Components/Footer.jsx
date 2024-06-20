@@ -8,7 +8,7 @@ import pic1 from '../assets/foot1.png';
 function Footer() {
   return (
     <>
-      <div className=' text-black flex items-center  justify-center'>
+      <div className='bg-black text-white flex items-center  justify-center'>
         <div className='flex flex-col gap-2 text-center'>
           <h1 className='text-2xl'>Navigation</h1>
           <ul className='flex flex-row gap-8'>
@@ -42,12 +42,12 @@ function Footer() {
           </div>
           <ul className='flex flex-row gap-4 text-sm text-gray-600 justify-center'>
             <Link to='#'>
-              <li>Privacy Policy - Terms & Condition</li>
+              <li>Private Policy - Terms & Condition</li>
             </Link>
           </ul>
         </div>
-        {/* <div className='absolute right-0 mr-10 mt-10'>
-        <img src={pic1} alt='Logo' className='w-48 h-50 rounded-full shadow-lg' /> */}
+        <div className='absolute right-0 mr-2 mt-4'>
+        <img src={pic1} alt='Logo' className='w-48 h-50 rounded-full shadow-lg' />
       </div>
       </div>
     </>
