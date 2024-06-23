@@ -1,30 +1,11 @@
 import React, { Component } from "react";
 import bannerImage from '../../../assets/bannerImage.jpg'
+import banner2Image from '../../../assets/banner2Image.jpg'
+import banner3Image from '../../../assets/banner3Image.jpg'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style, display: "block", background: "red" }}
-        onClick={onClick}
-      />
-    );
-  }
-  
-  function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style, display: "block", background: "black" }}
-        onClick={onClick}
-      />
-    );
-  }
 
 function BannerSlider() {
 
@@ -35,6 +16,20 @@ function BannerSlider() {
         width:'100%',
         height:'55vh',
     }
+    const banner2 = {
+      backgroundImage:`url(${banner2Image})`,
+      backgroundSize:'cover',
+      backgroundPosition: 'center',
+      width:'100%',
+      height:'55vh',
+  }
+  const banner3 = {
+    backgroundImage:`url(${banner3Image})`,
+    backgroundSize:'cover',
+    backgroundPosition: 'center',
+    width:'100%',
+    height:'55vh',
+}
     const settings = {
         dots: true,
         infinite: true,
@@ -44,14 +39,13 @@ function BannerSlider() {
         autoplay:true,
         autoplaySpeed: 3000,
         pauseOnHover: true,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
+        
       };
   return (
     <>
     <div className="slider-container">
     <Slider {...settings}>
-        <div>
+        <div className="">
         <div style={banner} className='flex justify-center items-center flex-wrap'>
         <div className='flex flex-col items-center'>
           <h1 className='md:text-3xl italic font-cursive text-xl mt-8'> A recipe is a story that ends with a meal.</h1>
@@ -64,7 +58,7 @@ function BannerSlider() {
         </div>
     </div>
     <div>
-    <div style={banner} className='flex justify-center items-center flex-wrap'>
+    <div style={banner2} className='flex justify-center items-center flex-wrap'>
         <div className='flex flex-col items-center'>
           <h1 className='md:text-3xl italic font-cursive text-xl mt-8'> A recipe is a story that ends with a meal.</h1>
           <h2 className='md:text-xl text-lg'>Craft it, Cook it, Share it</h2>
@@ -76,7 +70,7 @@ function BannerSlider() {
         </div>
     </div>
     <div>
-    <div style={banner} className='flex justify-center items-center flex-wrap'>
+    <div style={banner3} className='flex justify-center items-center flex-wrap'>
         <div className='flex flex-col items-center'>
           <h1 className='md:text-3xl italic font-cursive text-xl mt-8'> A recipe is a story that ends with a meal.</h1>
           <h2 className='md:text-xl text-lg'>Craft it, Cook it, Share it</h2>
