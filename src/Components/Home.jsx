@@ -1,6 +1,7 @@
 import React from 'react'
 import bannerImage from '../assets/bannerImage.jpg'
-import {Link} from 'react-router-dom'
+import CardSlider from './smallComponents/cardSlider/CardSlider'
+
 function Home() {
 
   const banner = {
@@ -23,6 +24,7 @@ function Home() {
         </div>
 
        </div>
+       <CardSlider/>
     </>
   )
 }

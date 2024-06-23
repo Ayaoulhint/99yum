@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import instagramLogo from '../assets/instagram.png';
+import instagramLogo from '../assets/instagram.jpg';
 import facebookLogo from '../assets/facebook.png';
 import twitterLogo from '../assets/x.png';
-import pic1 from '../assets/foot1.png';
+import pic1 from '../assets/logo.png';
 
 
 function Footer() {
