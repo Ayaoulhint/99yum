@@ -58,7 +58,7 @@ function BannerSlider() {
         </div>
     </div>
     <div>
-    <div style={banner2} className='flex justify-center items-center flex-wrap'>
+    <div style={banner2} className='flex justify-center items-center flex-wrap text-white'>
         <div className='flex flex-col items-center'>
           <h1 className='md:text-3xl italic font-cursive text-xl mt-8'> A recipe is a story that ends with a meal.</h1>
           <h2 className='md:text-xl text-lg'>Craft it, Cook it, Share it</h2>
