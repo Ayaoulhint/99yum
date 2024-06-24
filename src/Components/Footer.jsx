@@ -8,7 +8,7 @@ import pic1 from '../assets/logo.png';
 
 function Footer() {
   return (
-    <footer className='bg-gradient-to-l from-black via-gray-900 to-orange-500 text-white py-12 px-4'>
+    <footer className='bg-gradient-to-l from-black via-gray-900 to-orange-500 text-white py-12 px-4 mt-5'>
       <div className='container mx-auto flex flex-col items-center'>
         <div className='mb-8 text-center'>
           <h1 className='text-4xl font-bold mb-4'>Navigation</h1>

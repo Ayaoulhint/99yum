@@ -109,7 +109,7 @@ const Recipe = () => {
               <button
                 type="button"
                 onClick={closeRecipeModal}
-                className="recipe-close-btn absolute top-0 right-0 m-4 p-2 rounded-full bg-gray-300 hover:bg-gray-400 focus:outline-none"
+                className="recipe-close-btn absolute top-0 right-0 m-4 px-2.5 py-1 rounded-full bg-gray-300 hover:bg-gray-400 focus:outline-none"
               >
                 <i className="fas fa-times text-gray-700"></i>
               </button>
