@@ -16,7 +16,7 @@ function Header() {
             </Link>
           </div>
           <ul className='sm:flex sm:flex-wrap sm:gap-8 sm:text-lg hidden text-black font-medium'>
-            <NavLink to='Home' className={({ isActive }) => `${isActive ? "text-orange-500" : "text-gray-700"}`}>
+            <NavLink to='/' className={({ isActive }) => `${isActive ? "text-orange-500" : "text-gray-700"}`}>
               <li>Home</li>
             </NavLink>
             <NavLink to='Recipe' className={({ isActive }) => `${isActive ? "text-orange-500" : "text-gray-700"}`}>
