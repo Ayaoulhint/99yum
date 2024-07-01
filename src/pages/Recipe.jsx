@@ -90,7 +90,7 @@ const Recipe = () => {
                   <img src={meal.strMealThumb} alt={meal.strMeal} className="w-full h-auto rounded-lg" />
                 </div>
                 <div className="meal-name">
-                  <h3 className="text-lg font-bold">{meal.strMeal}</h3>
+                  <h3 className="text-lg font-bold text-start">{meal.strMeal}</h3>
                   <button
                     onClick={() => getMealRecipe(meal.idMeal)}
                     className="recipe-btn text-orange-500 block text-center"
@@ -111,7 +111,7 @@ const Recipe = () => {
                 onClick={closeRecipeModal}
                 className="recipe-close-btn absolute top-0 right-0 m-4 px-2.5 py-1 rounded-full bg-gray-300 hover:bg-gray-400 focus:outline-none"
               >
-                <i className="fas fa-times text-gray-700">X</i>
+                <i className="fas fa-times text-gray-700"></i>
               </button>
               <div className="text-center">
                 <h2 className="text-2xl font-bold mb-2">{selectedMeal.strMeal}</h2>

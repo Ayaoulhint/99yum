@@ -79,9 +79,9 @@ const settings = {
                 <div className="meal-img mb-4">
                   <img src={meal.strMealThumb} alt={meal.strMeal} className="w-full h-auto rounded-lg" />
                 </div>
-                <div className="meal-name">
+                <div className="meal-name text-start">
                   <h3 className="text-lg md:text-2xl font-bold">{meal.strMeal}</h3>
-                  <p className=''>Country:{meal.strArea}</p>
+                  <p className=''>{meal.strArea}</p>
                   <p>Meal Type: {meal.strCategory}</p>
                   <button
                     onClick={() => getMealRecipe(meal.idMeal)}
