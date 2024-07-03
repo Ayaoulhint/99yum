@@ -7,7 +7,7 @@ function AiBeta() {
 
 // Access your API key as an environment variable (see "Set up your API key" above)
 // const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GOOGLE_GENERATIVE_API_KEY);
-const genAI = new GoogleGenerativeAI("AIzaSyDHyV_5EcAlB51OabPqVuKIB05rxYk6Iho");
+const genAI = new GoogleGenerativeAI('');
 
 
 const [text, setText] = useState('')
