@@ -1,25 +1,101 @@
-import React, { useLayoutEffect } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Layout from './Layout.jsx'
-import {Home,Recipe,Blog,About,Contact} from './Components'
+import App from './App.jsx'
 import './index.css'
-import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './store/store.js'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import Home from './pages/Home.jsx'
+import { AuthLayout, Login } from './components/index.js'
 
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path='/' element = {<Layout/>}>
-     <Route path="home" element={<Home/>} />  
-      <Route path="recipe" element={<Recipe />} /> 
-     <Route path="blog" element={<Blog/>} /> 
-     <Route path="about-us" element={<About/>} /> 
-    <Route path="contact-us" element={<Contact/>} /> 
-    </Route>
-  )
-)
+import AddPost from "./pages/AddPost";
+import Signup from './pages/Signup'
+import EditPost from "./pages/EditPost";
+
+import Post from "./pages/Post";
+
+import AllPosts from "./pages/AllPosts";
+import Recipe from './pages/Recipe.jsx'
+import About from './pages/About.jsx'
+import Contact from './pages/Contact.jsx'
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+        {
+            path: "/",
+            element: <Home />,
+        },
+        {
+            path: "/recipe",
+            element: <Recipe />,
+        },
+        {
+            path: "/about-us",
+            element: <About />,
+        },
+        {
+            path: "/Contact",
+            element: <Contact />,
+        },
+        {
+            path: "/login",
+            element: (
+                <AuthLayout authentication={false}>
+                    <Login />
+                </AuthLayout>
+            ),
+        },
+        {
+            path: "/signup",
+            element: (
+                <AuthLayout authentication={false}>
+                    <Signup />
+                </AuthLayout>
+            ),
+        },
+        {
+            path: "/all-posts",
+            element: (
+                <AuthLayout authentication>
+                    {" "}
+                    <AllPosts />
+                </AuthLayout>
+            ),
+        },
+        {
+            path: "/add-post",
+            element: (
+                <AuthLayout authentication>
+                    {" "}
+                    <AddPost />
+                </AuthLayout>
+            ),
+        },
+        {
+            path: "/edit-post/:slug",
+            element: (
+                <AuthLayout authentication>
+                    {" "}
+                    <EditPost />
+                </AuthLayout>
+            ),
+        },
+        {
+            path: "/post/:slug",
+            element: <Post />,
+        },
+    ],
+},
+])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router ={router}/>
+    <Provider store={store}>
+    <RouterProvider router={router}/>
+    </Provider>
   </React.StrictMode>,
 )
