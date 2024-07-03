@@ -19,6 +19,7 @@ import AllPosts from "./pages/AllPosts";
 import Recipe from './pages/Recipe.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
+import AiBeta from './pages/AiBeta.jsx'
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
                     <AllPosts />
                 </AuthLayout>
             ),
+        },
+        {
+            path: "/ai",
+            element: <AiBeta />,
         },
         {
             path: "/add-post",
