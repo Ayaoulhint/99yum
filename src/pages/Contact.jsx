@@ -36,7 +36,7 @@ const ContactUs = () => {
 
   return (
     <div className="flex flex-col items-center md:flex-row md:justify-center ">
-      <div className="w-1/3 pr-10">
+      <div className="md:w-1/3 md:pr-10 w-[50%] h-[40%] ">
         <img src={largeImage} alt="Contact Us" className="rounded-lg shadow-md max-w-full h-auto "/>
       </div>
       <div className="w-1/2 text-start">

@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Link,NavLink } from 'react-router-dom'
+import { Link,NavLink,useLocation } from 'react-router-dom'
 import LogoutBtn from '../components/Header/LogoutBtn'
 function Hamberger() {
     const authStatus = useSelector((state) => state.auth.status)
@@ -54,8 +54,15 @@ function Hamberger() {
       },
       
        ]
+    
 
+      
     const [isNavOpen , setIsNavOpen] = useState(false)
+    const location = useLocation()
+    useEffect(() => (
+      setIsNavOpen(false) 
+    ), [location])
+    
   return (
     <>
     <div className='md:hidden flex justify-between  items-center  flex-wrap w-full' >

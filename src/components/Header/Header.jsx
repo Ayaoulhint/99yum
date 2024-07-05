@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {Container, Logo, LogoutBtn} from '../index'
 import { Link } from 'react-router-dom'
 import {useSelector} from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,useLocation } from 'react-router-dom'
 import Hamberger from '../../Components copy/Hamberger'
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.status)
   const navigate = useNavigate()
+  const location = useLocation()
+  useEffect(() => (
+    window.scrollTo(0, 0)
+  ), [location])
+  
 
   const navItems = [
     {
@@ -56,9 +61,9 @@ function Header() {
   
 
   return (
-    <header className=' '>
+    <header className=' md:sticky md:top-0 md:z-50'>
       
-        <nav className='md:flex md:items-center bg-white md:justify-between  hidden'>
+        <nav className='md:flex md:items-center bg-white md:justify-between  hidden px-8'>
         <div className=' hidden md:block'>
             <Link to='/'>
               <img src="\src\assets\logo.png" alt="" className='h-24 w-24' />
@@ -70,7 +75,7 @@ function Header() {
               <li key={item.name}>
                 <button
                 onClick={() => navigate(item.slug)}
-                className={`inline-bock px-6 py-2 duration-200 hover:bg-orange-400 rounded-full `}
+                className={`inline-bock px-6 py-2 duration-200 hover:bg-orange-400 rounded-full font-semibold`}
                 >{item.name}</button>
               </li>
             ) : null
