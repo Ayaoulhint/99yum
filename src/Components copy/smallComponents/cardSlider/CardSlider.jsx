@@ -46,6 +46,7 @@ const settings = {
   autoplay:true,
   autoplaySpeed: 3000,
   pauseOnHover: true,
+  arrows:false,
   initialSlide: 0,
   responsive: [
     
@@ -75,7 +76,7 @@ const settings = {
     
     <Slider {...settings} className='drop-shadow-lg' >
             {recipe.map((meal) => (
-              <div key={meal.idMeal} className="meal-item bg-white p-4 rounded-lg shadow-md drop-shadow-lg">
+              <div key={meal.idMeal} className="meal-item bg-white p-4 rounded-lg shadow-md drop-shadow-lg ">
                 <div className="meal-img mb-4">
                   <img src={meal.strMealThumb} alt={meal.strMeal} className="w-full h-auto rounded-lg" />
                 </div>

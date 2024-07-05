@@ -1,51 +1,91 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link,NavLink } from 'react-router-dom'
+import LogoutBtn from '../components/Header/LogoutBtn'
 function Hamberger() {
+    const authStatus = useSelector((state) => state.auth.status)
+    const navItems = [
+        {
+          name: 'Home',
+          slug: "/",
+          active: true,
+          className:'',
+        },
+        {
+          name: 'Recipe',
+          slug: "/recipe",
+          active: true,
+          className:'',
+        },
+        {
+          name: "Blog",
+          slug: "/all-posts",
+          active: true,
+          className:'',
+       },
+        {
+          name: 'About',
+          slug: "/about-us",
+          active: true,
+          className:'',
+        },
+        {
+          name: 'Contact',
+          slug: "/Contact",
+          active:true,
+          className:'',
+       },
+       {name: "Add Post",
+      slug: "/add-post",
+      active: authStatus,
+      className:'bg-gradient-to-r from-orange-500 to-red-500 px-6 py-2 m-1 rounded-full text-white shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl',
+      },
+      {
+        name: "Login",
+        slug: "/login",
+        active: !authStatus,
+        className:'bg-gradient-to-r from-orange-500 to-red-500 px-6 py-2 m-1 rounded-full text-white shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl',
+      },
+      {
+        name: "Signup",
+        slug: "/signup",
+        active: !authStatus,
+        className:'bg-gradient-to-r from-orange-500 to-red-500 px-6 py-2 m-1 rounded-full text-white shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl',
+      },
+      
+       ]
 
     const [isNavOpen , setIsNavOpen] = useState(false)
   return (
     <>
-    <div className='sm:hidden flex justify-between ml-10 mr-5 items-center sticky flex-wrap' >
+    <div className='md:hidden flex justify-between  items-center  flex-wrap w-full' >
     <div className=''>
                 <Link to='/' >
-                <img src="\src\assets\WhatsApp Image 2024-06-17 at 03.53.11_9ae0a259.jpg" alt="" className='h-24 w-24'/>
+                <img src="\src\assets\logo.png" alt="" className='h-24 w-24'/>
                 </Link>
             </div>
         <div>
-        <img src="\src\assets\hamberger.png" alt=""  className='w-5 h-10 ' onClick={()=> setIsNavOpen((prev)=> !prev) }/>
+        <img src="\src\assets\hamberger.png" alt=""  className='w-5 h-10 mr-5' onClick={()=> setIsNavOpen((prev)=> !prev) }/>
         </div>
-        <div className={isNavOpen? " w-full flex flex-col items-center justify-center bg-gray-400" :"hidden"}>
+        <div className={isNavOpen? " w-full flex flex-col items-center justify-center bg-none" :"hidden"}>
             {/* <div className='flex flex-col items-center justify-center bg-gray-400 '> */}
-        <ul className=''>
-                <NavLink to='Home' className={({isActive})=>`${isActive? "text-orange-500": "text-gray-700"}`}>
-                    <li>
-                        Home
+        <ul className=' text-xl'>
+            {navItems.map((item)=>
+                item.active?(
+                <NavLink to={item.slug} className={({isActive})=>`${isActive? "text-orange-500": "text-gray-700"}`}>
+                    <li className={item.className}>
+                        {item.name}
                     </li>
                 </NavLink>
-                <NavLink to='Recipe' className={({isActive})=>`${isActive? "text-orange-500": "text-gray-700"}`}>
-                    <li>Recipe</li>
-                </NavLink>
-                <NavLink to='Blog'className={({isActive})=>`${isActive? "text-orange-500": "text-gray-700"}`}>
-                    <li>
-                    Blog
-                    </li>
-                </NavLink>
-                <NavLink to='About-Us' className={({isActive})=>`${isActive? "text-orange-500": "text-gray-700"}`}>
-                    <li>
-                        About Us
-                    </li>
-                </NavLink>
-                
-                <NavLink to='Contact-Us'className={({isActive})=>`${isActive? "text-orange-500": "text-gray-700"}`}>
-                    <li>
-                        Contact Us
-                    </li>
-                </NavLink>
+                ):null
+            )}  
             </ul>
-            
-            <button className=''>Login</button>
-            <button className=''>SignUp</button>
-                
+            {authStatus && (
+              <div>
+                <LogoutBtn/>
+              </div>
+              
+            )}    
             
           </div>
         </div>
