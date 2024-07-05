@@ -19,7 +19,7 @@ function Footer() {
             <Link to='/recipe'>
               <li className='hover:text-orange-300 transition duration-300'>Recipe</li>
             </Link>
-            <Link to='/blog'>
+            <Link to='/all-posts'>
               <li className='hover:text-orange-300 transition duration-300'>Blog</li>
             </Link>
             <Link to='/about-us'>
