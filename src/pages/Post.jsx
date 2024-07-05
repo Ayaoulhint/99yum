@@ -32,8 +32,15 @@ export default function Post() {
         });
     };
 
+    const back = ()=>{
+        navigate(-1);
+    }
+
     return post ? (
         <div className="py-8">
+            <div className="flex justify-start">
+            <Button onClick={back}>back</Button>
+            </div>
             <Container>
                 <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
                     <img

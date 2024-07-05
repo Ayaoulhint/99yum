@@ -25,7 +25,7 @@ function Footer() {
             <Link to='/about-us'>
               <li className='hover:text-orange-300 transition duration-300'>About Us</li>
             </Link>
-            <Link to='/contact-us'>
+            <Link to='/contact'>
               <li className='hover:text-orange-300 transition duration-300'>Contact Us</li>
             </Link>
           </ul>
