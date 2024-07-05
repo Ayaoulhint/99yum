@@ -58,7 +58,7 @@ function Header() {
   return (
     <header className=' '>
       
-        <nav className='md:flex md:items-center bg-white md:justify-between md:flex-wrap hidden'>
+        <nav className='md:flex md:items-center bg-white md:justify-between  hidden'>
         <div className=' hidden md:block'>
             <Link to='/'>
               <img src="\src\assets\logo.png" alt="" className='h-24 w-24' />
