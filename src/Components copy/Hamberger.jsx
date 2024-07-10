@@ -77,10 +77,10 @@ function Hamberger() {
         <div className={isNavOpen? " w-full flex flex-col items-center justify-center bg-none" :"hidden"}>
             {/* <div className='flex flex-col items-center justify-center bg-gray-400 '> */}
         <ul className=' text-xl'>
-            {navItems.map((item)=>
+            {navItems.map((item,index)=>
                 item.active?(
                 <NavLink to={item.slug} className={({isActive})=>`${isActive? "text-orange-500": "text-gray-700"}`}>
-                    <li className={item.className}>
+                    <li className={item.className} key={index}>
                         {item.name}
                     </li>
                 </NavLink>
