@@ -70,7 +70,7 @@ const settings = {
 };
   return (
     <>
-     <h1 className='text-center md:text-4xl text-xl italic mt-10 underline bg-orange-500 mx-auto p-2 font-semibold mb-5'>Some Recipes</h1>
+<h1 class="text-center text-6xl md:text-7xl italic mt-10 underline bg-gradient-to-r from-orange-500 to-red-700 text-transparent bg-clip-text mx-auto p-4 font-extrabold mb-8">Some Recipes</h1>
      
     {/* <div id="meal" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"> */}
     
@@ -86,7 +86,8 @@ const settings = {
                   <p>Meal Type: {meal.strCategory}</p>
                   <button
                     onClick={() => getMealRecipe(meal.idMeal)}
-                    className="recipe-btn text-orange-500 block text-center"
+                    classNa
+                    me="recipe-btn text-orange-500 block text-center"
                   >
                     Get Recipe
                   </button>
@@ -130,9 +131,9 @@ const settings = {
             </div>
           </div>
         )}
-        <div className='flex justify-center mt-5'>
+        <div className='flex justify-center mt-8'>
         <a href="recipe" target="" rel="">
-          <button className='bg-black text-white px-3 py-2 -skew-x-5 mt-4 md:text-lg rounded-xl hover:bg-orange-700 hover:scale-110'>View More</button>
+          <button className='bg-gradient-to-r from-orange-500 to-red-500 p-2 m-1 rounded-lg text-white shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl'>View More</button>
           </a>
         </div> 
     </>
