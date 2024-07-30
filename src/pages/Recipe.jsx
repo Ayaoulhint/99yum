@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '@fortawesome/fontawesome-free/css/all.css';
 
 const Recipe = () => {
@@ -8,13 +8,33 @@ const Recipe = () => {
   const [selectedMeal, setSelectedMeal] = useState(null);
   const [error, setError] = useState('');
 
+  const getDefaultMealList = async () => {
+    try {
+      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=`);
+      const data = await response.json();
+      if (data.meals) {
+        setMeals(data.meals.slice(0, 10));
+        setError('');
+      } else {
+        setMeals([]);
+        setError('Sorry, we didn\'t find any meal. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error fetching meals:', error);
+      setError('Failed to fetch meals. Please check your connection and try again.');
+    }
+  };
+
+  useEffect(() => {
+    getDefaultMealList();
+  }, []);
 
   const getMealList = async () => {
     try {
       const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInput}`);
       const data = await response.json();
       if (data.meals) {
-        setMeals(data.meals);
+        setMeals(data.meals.slice(0, 10));
         setError('');
       } else {
         setMeals([]);
@@ -37,13 +57,11 @@ const Recipe = () => {
     }
   };
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
     getMealList();
   };
 
-  
   const closeRecipeModal = () => {
     setShowRecipe(false);
   };
@@ -60,7 +78,7 @@ const Recipe = () => {
           <form onSubmit={handleSubmit} className="meal-search-box mb-4 flex justify-center">
             <input
               type="text"
-              className="search-control  border-orange-300 rounded-l py-2 px-4 focus:outline-none focus:ring-2 p-0  text-[1.1rem] border-2 border-tenne-tawny text-tenne-tawny rounded-tl-2xl rounded-bl-2xl"
+              className="search-control border-orange-300 rounded-l py-2 px-4 focus:outline-none focus:ring-2 p-0 text-[1.1rem] border-2 border-tenne-tawny text-tenne-tawny rounded-tl-2xl rounded-bl-2xl"
               placeholder="Enter an ingredient"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
@@ -85,15 +103,15 @@ const Recipe = () => {
 
           <div id="meal" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {meals.map((meal) => (
-              <div key={meal.idMeal} className="meal-item bg-white p-4 rounded-lg shadow-md">
-                <div className="meal-img mb-4">
+              <div key={meal.idMeal} className="meal-item bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out gradient-border">
+                <div className="meal-img mb-4 flex justify-center items-center">
                   <img src={meal.strMealThumb} alt={meal.strMeal} className="w-full h-auto rounded-lg" />
                 </div>
                 <div className="meal-name">
-                  <h3 className="text-lg font-bold text-start">{meal.strMeal}</h3>
+                  <h3 className="text-xl font-bold text-start">{meal.strMeal}</h3>
                   <button
                     onClick={() => getMealRecipe(meal.idMeal)}
-                    className="recipe-btn text-orange-500 block text-center"
+                    className="recipe-btn text-orange-500 block text-center bg-transparent hover:bg-orange-500 hover:text-white border border-orange-500 rounded-md py-2 px-4 mt-2 transition duration-300"
                   >
                     Get Recipe
                   </button>
@@ -109,12 +127,12 @@ const Recipe = () => {
               <button
                 type="button"
                 onClick={closeRecipeModal}
-                className="recipe-close-btn absolute top-0 right-0 m-4 px-2.5 py-1 rounded-full bg-gray-300 hover:bg-gray-400 focus:outline-none"
+                className="recipe-close-btn absolute top-0 right-0 m-4 px-2.5 py-1 rounded-full bg-gray-300 hover:bg-gray-400 focus:outline-none transition duration-300"
               >
                 <i className="fas fa-times text-gray-700"></i>
               </button>
               <div className="text-center">
-                <h2 className="text-2xl font-bold mb-2">{selectedMeal.strMeal}</h2>
+                <h2 className="text-3xl font-bold mb-2">{selectedMeal.strMeal}</h2>
                 <p className="text-gray-600 mb-4">{selectedMeal.strCategory}</p>
                 <div className="recipe-instruct mb-4">
                   <h3 className="text-lg font-semibold">Instructions:</h3>
@@ -128,7 +146,7 @@ const Recipe = () => {
                     href={selectedMeal.strYoutube}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-orange-500"
+                    className="text-orange-500 block text-center hover:underline transition duration-300"
                   >
                     Watch Video
                   </a>
