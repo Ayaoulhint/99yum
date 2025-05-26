@@ -2,18 +2,22 @@
 
 🍽️ 99yum is a web app to discover and share delicious recipes, combined with a blog to tell stories around food!
 
-
 Built with React + Vite for a fast and smooth experience, using Appwrite as the backend for auth, database, and storage.
 
+---
 
-🚀 Quick Start
-Run npm install — to install all dependencies
+## 🚀 Quick Start
 
-Run npm run dev — to start the app in development mode
+Run `npm install` — to install all dependencies
 
+Run `npm run dev` — to start the app in development mode
 
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-💡 Features
+---
+
+## 💡 Features
+
 Smooth recipe search and navigation
 
 Blog with articles, comments, and cooking tips
@@ -26,9 +30,10 @@ Upload images to make your dishes shine
 
 Responsive design, perfect on mobile and desktop 📱💻
 
+---
 
+## 🛠️ Tech Stack
 
-🛠️ Tech Stack
 ⚛️ React 18 — modern, fast UI library
 
 ⚡ Vite — lightning-fast build tool with Hot Module Replacement
@@ -41,7 +46,6 @@ Responsive design, perfect on mobile and desktop 📱💻
 
 🧹 ESLint — keeps the code clean and error-free
 
+---
 
-
-Enjoy cooking and coding! 🍰💻🎉
-
+**Enjoy cooking and coding!** 🍰💻🎉
