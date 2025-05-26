@@ -1,4 +1,5 @@
-99yum 🍳✨
+# 99yum 🍳✨
+
 🍽️ 99yum is a web app to discover and share delicious recipes, combined with a blog to tell stories around food!
 
 Built with React + Vite for a fast and smooth experience, using Appwrite as the backend for auth, database, and storage.
